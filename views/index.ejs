@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Potsts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Techlume posts</h1>
+    <h3><i>One platform. Endless code. Infinite curiosity.</i></h3>
+    <% for(post of posts) { %>
+    <!--for every post we will create a div-->
+    <div>
+        <h2>@<%= post.username %></h2>
+        <h4><%= post.content %></h4>
+        <br>
+        <a href="http://localhost:8080/posts/<%= post.id %>" >See in Detail</a>
+        <a href="http://localhost:8080/posts/<%= post.id %>/edit" >Edit</a>
+        <form  method="post" action="/posts/<%=post.id%>?_method=DELETE">
+            <button>Delete Post</button>
+        </form>
+    </div>
+   <%}%>
+   <br>
+   <a href="http://localhost:8080/posts/new" class="button-link">Create New Post</a>
+
+</body>
+</html>
